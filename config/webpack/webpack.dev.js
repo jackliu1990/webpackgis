@@ -1,31 +1,46 @@
 ﻿const path = require('path');
 const webpack = require('webpack');
-
+const root = path.resolve(__dirname,"../../");//获取根目录
 module.exports = {
+  //多文件打包输出
   entry:  {
-      "tsgis2d":path.resolve(__dirname,"../../")+"/src/tsgis2d.js",
-      "tsgis3d":path.resolve(__dirname,"../../")+"/src/tsgis3d.js",
-      "tsgis":path.resolve(__dirname,"../../")+"/src/tsgis.js",
+      "tsgis2d":root+"/src/tsgis2d.js",
+      "tsgis3d":root+"/src/tsgis3d.js",
+      "tsgis":root+"/src/tsgis.js"
   },
+  devtool: 'inline-source-map',//
   output: {
-    path: path.resolve(__dirname,"../../") + "/dist",//打包后的文件存放的地方
-    filename: "[name].js",//打包后输出文件的文件名
-	libraryTarget: 'amd'
+      path: root + "/dist",//打包后的文件存放的地方
+      publicPath: "/assets/",//webpack-dev-server目录
+      filename: "[name].js",//打包后输出文件的文件名
+      libraryTarget: 'amd'
   },
-  /*resolve:{
-	  //模块别名
-	  alias:__dirname+"/src/tsgis2d",
-	  //模块目录
-	  modules:[
-	    path.resolve('./src/')
-	  ],
-	  extensions:['.js']
-  },*/
-   plugins: [
-      /* new webpack.optimize.UglifyJsPlugin({
-           compress: {
-               warnings: false
-           }
-       })*/
-    ]
+  resolve:{
+      extensions:['.js'],
+      //模块别名定义,用于后面直接引用模块
+      alias:{
+
+      }
+  },
+    plugins:[
+        new webpack.HotModuleReplacementPlugin()
+    ],
+    devServer: {
+        inline:true,
+        hot:true
+    },
+    module: {
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['es2015']
+                    }
+                }
+            }
+        ]
+    }
 }
