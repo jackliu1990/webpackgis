@@ -1,7 +1,7 @@
 /**
  * Created by liufeng on 2017/11/2.
  */
-define(['../../../g2/classUtil', '../map', '../globe'], function (ClassUtil, Map,Globe) {
+define(['../../../g2/lang/classUtil', '../map', '../globe'], function (ClassUtil, Map,Globe) {
 
     var globe = function(opts){
         var optss = opts || {};
