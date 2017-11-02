@@ -11,9 +11,7 @@ module.exports = {
   devtool: 'inline-source-map',//
   output: {
       path: root + "/dist",//打包后的文件存放的地方
-      publicPath: "/assets/",//webpack-dev-server目录
       filename: "[name].js",//打包后输出文件的文件名
-      libraryTarget: 'amd'
   },
   resolve:{
       extensions:['.js'],
@@ -26,6 +24,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin()
     ],
     devServer: {
+        contentBase: root + "/dist",
         inline:true,
         hot:true
     },
