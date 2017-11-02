@@ -1,0 +1,23 @@
+{
+  "name": "webpackgis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+	"start":"webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackliu1990/webpackgis.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackliu1990/webpackgis/issues"
+  },
+  "homepage": "https://github.com/jackliu1990/webpackgis#readme",
+  "devDependencies": {
+    "webpack": "^3.8.1"
+  }
+}
