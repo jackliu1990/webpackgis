@@ -6,6 +6,4 @@ define(['./lang/classUtil'], function (ClassUtil) {
     var g2 = window.g2;
     g2.lang=g2.lang || {};
     g2.lang.ClassUtil = ClassUtil;
-    g2.lang.aaaliufeng5sdsd55= ClassUtil;
-    console.log(g2);
 })

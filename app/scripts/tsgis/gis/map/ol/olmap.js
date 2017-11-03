@@ -6,8 +6,8 @@
  * Created by ligang on 2014/9/17.
  */
 
-define(['../../../g2/lang/classUtil', '../map'], function (ClassUtil, Map) {
-
+define(['../../../g2/lang/classUtil', '../map',"../../../../../vendor/jquery.min"], function (ClassUtil, Map,jQuery) {
+    console.log(window.jQuery);
    var olmap = function(opts){
        var optss = opts ||{};
        Map.call(this,optss);

@@ -3,9 +3,6 @@
  */
 require.config({
     baseUrl: './scripts',
-    paths: {
-        "tsgis2d":"../../dist/tsgis"
-    },
     shim: {
         underscore: {
             exports: '_'
@@ -15,7 +12,7 @@ require.config({
 /**
  *   app
  */
-require(['tsgis2d'],
+require(['./tsgis/tsgis2d'],
     function (tsgis2d) {
         console.log(g2);
     });

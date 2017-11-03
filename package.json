@@ -1,29 +1,34 @@
 {
-  "name": "webpackgis",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "tsgis",
+  "version": "2.0.0-alpha.1",
+  "description": "TS-GIS for javascript SDK",
+  "homepage": "http://www.gsafety.com",
+  "author": {"name":"gsafety","location":"wuhan"},
+  "license": "ISC",
+  "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "webpack --progress --watch",
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:dev": "webpack-dev-server --host localhost --port 8888",
-    "start:prod": "webpack && node server.js"
-  },
+     "build":"gulp",
+     "build:dev":"gulp dev --dev",
+     "clean":"npm run clean:dev",
+     "clean:dev":"gulp clean",
+     "start":"npm run build:dev&&npm run start-webserver:dev",
+     "start-webserver:dev":"webpack-dev-server --content-base build/ --inline --progress --port 8080",
+     "webpack:build":"webpack --progress"
+   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jackliu1990/webpackgis.git"
   },
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/jackliu1990/webpackgis/issues"
   },
-  "homepage": "https://github.com/jackliu1990/webpackgis#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "run-sequence": "^2.2.0",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.4"
   }
